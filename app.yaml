@@ -1,0 +1,28 @@
+runtime: php
+env: flex
+
+runtime_config:
+  document_root: public
+
+# Ensure we skip ".env", which is only for local development
+skip_files:
+  - .env
+
+env_variables:
+  # Put production environment variables here.
+  APP_LOG: errorlog
+  APP_KEY: base64:3Lzd5CH757wK0mM6gj5N3LCQVUQRQrMvmw9x4NaOhBQ=
+  STORAGE_DIR: /tmp
+  CACHE_DRIVER: database
+  SESSION_DRIVER: database
+  ## Set these environment variables according to your CloudSQL configuration.
+  DB_HOST: localhost
+  DB_DATABASE: corpermdb
+  DB_USERNAME: root
+  DB_PASSWORD: CorpERMAdmin1900
+  DB_SOCKET: /cloudsql/corperm-174723:us-central1:corperm1
+
+beta_settings:
+    # for Cloud SQL, set this value to the Cloud SQL connection name,
+    # e.g. "project:region:cloudsql-instance"
+    cloud_sql_instances: corperm-174723:us-central1:corperm1

@@ -1,0 +1,40 @@
+//     OLD Snippets  //
+
+  <!--<div class="form-group">
+    <p class="login-box-msg"><b>Please select your desired products</b></p>
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox"  name="product" value="corpFin">
+                      CorpFin
+                    </label>
+                  </div>
+
+                  <div class="checkbox" >
+                    <label>
+                      <input type="checkbox" name="product" value="corpHRM">
+                      CorpHRM
+                    </label>
+                  </div>
+
+          <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="product" value="corpPay">
+                      CorpPay
+                    </label>
+                  </div>
+
+          <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="product" value="coprTax">
+                      CorpTax
+                    </label>
+                  </div>
+
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" name="product" value="corpEMT">
+                      CorpEMT
+                    </label>
+                  </div>
+                </div>-->
+ <!--<div class="g-recaptcha" data-sitekey="{{ env('RE_CAP_SITE') }}"></div>-->

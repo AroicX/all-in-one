@@ -1,0 +1,132 @@
+86d4445 transaction types not fully in place
+fa2d617 Merge branch 'transtypes'
+a1151f8 working on transaction types
+af9df51 Merge branch 'roles_definition'
+27b21f9 Roman bican roles fixed again
+2561601 odified the romanbican roles library
+cf86cda Merge remote-tracking branch 'origin/master'
+422d73f Added romanbican roles back
+1dc3c53 resolved conflick in route.web
+7cec217 Finsihed with the Pipeline JS code
+f602997 Removed the romanbican roles library
+99ed81d Subscription Maximumly implemented
+a36a9f1 Subscription fully implemented successfully
+c30e1e8 Subscription plan and payment resolved successfully
+b1c7161 added todo message to CorpFinTrnsAddReq
+84a9bbb transaction partners resolved with migration
+84bf053 resoved coutries states and corpfin_trans_partner model
+5631f39 replaced bican
+cbcb10a New subscribtion middleware created
+107716e Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+bb28520 unresolved foreign key error
+b5b17c8 Pipeline API working
+8713cef Finish with the pipeline PHP code
+e16fb7c Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+9bfc21b fixed pipeline javascript error on changing deal when clicked
+dea95d3 Quickly worked on the Subscription plan interface, changing the html and javascript
+e451bce adjusted composer autoload file
+99f45fc Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+16f1479 corpfin services completed
+1964dab done with engagement economics
+28a5756 adjusted add_products and add_service file
+21b8fd7 Still working on the payment interface
+ed73054 adjusted add_products and add_service file
+20fbe47 adjusted add_products and add_service file
+614988d Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+e16ee21 running corp services
+8201270 run transaction and modify employee_table
+fe25126 added migration for both discount and expenses
+7522d14 Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm into master_cp
+7bf19ac Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+fa0a6c6 training completed
+a4c987d Resolved conflict other subscription middleware problem
+aeb5d2d removed vendor
+a522648 Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+10c5b82 product completed
+3cd9550 Merge remote-tracking branch 'origin/master' into corpfin_sub
+9fdc74a CorpFIN subscription with save and redirect done
+444444e modified corphrm dashboard url
+df035e4 resolved route confliuct#
+914cc75 checked out vendor
+cbe91b6 removed vendor
+dc60dd6 resolved composer.json
+4c22eb6 modified gitignore
+90d986d early morning commit
+9f12807 Merge remote-tracking branch 'origin/master'
+0c16ded Modified and cleaned up codes
+e9c90c2 early morning commit
+7b4fa8c fixed corpfin products
+ef9c550 Created the discount and expenses model
+fa07f4d Working on EMT discount and expenses
+ccaa5fc starting action stream
+f3162f0 corpFinProduct migration added
+54e7333 Subscription javascript fixed
+5885354 fixed corpfin tax settings
+d5ccd67 Added EMT View Composer
+46f5fd0 User role to company set up view fixed
+25d024e verifying hrm
+789c9f5 Finished the Engagement Economics
+0f05d26 Merge branch 'master' of https://bitbucket.org/hactiv8labs/corperm
+c243b50 removed nested if
+96f6dde added product and state model, modified Subscription controller
+b4d8187 added Vat model and migration class
+b86a374 Merge branch 'copy'
+8133bcc Merge remote-tracking branch 'origin/master'
+c12cef0 adding names to corpfin routes
+1fb86f3 resolving conflicts
+08a78e2 Working on Economics Engagement
+2ebf02c  stashed files
+f267ad0 Prefer-dist folder removed
+3f99972 Prefer-dist folder removed
+0e18fc1 User creation with two roles attached done.
+7088aaf Merge remote-tracking branch 'origin/master' into emmabidem_master
+1f5b0ca New membership with role assigned done
+dd7f249 fixed some menus CorpFin
+ce26019 fix menu on corpfin and adjusted methods in subcription
+50248ab adjusted Subscription trait
+26ee693 roles added to db manually with tinker
+17ba9d7 Corrected error on displaying created deal. Duplicate on deal dashboard is also corrected
+334a1bb before composer update
+eb47ce2 Merge remote-tracking branch 'origin/master' into emmabidem_master
+437af9e Merge remote-tracking branch 'origin/emmabidem_master'
+9285853 modified user model and fixed payment method view from general settings
+5ae0eef Partially resolved Subscription but not paying {bug with ajax}
+a6faca4 rolled back bican migrations
+7342347 Create new Migration
+3980e0e merged master
+bc23711 bican role classes modified, function is changed to userIs
+5e609ae romanbican roles library migrations done
+e6a5bdc dashboard modified
+43fe5bf removed --prefer-dist
+99d3016 Added the romanbican roles library and configured the basic set up
+2c1184d Merge remote-tracking branch 'origin/master'
+e30fd6f updated gitignore
+15f322d remoived prefer-dist
+2e3ae2e removed prefer -dist
+ffc653b general settings reviewd
+4dd8d39 assigningh roles
+02c48b6 UsersTableSeeder created
+c509ad2 RolesTableSeeder code done. Roles seeder called in DatabaseSeeder
+719ee24 Created the roles table seeder, aslo changed the url of the login button on register page
+d6f5ff9 merged indented
+1dfa1d2 removed prefer-dist
+c37875e removed cached .env
+218bd53 all app/*.php indented
+85ac3df reformatted
+04356e8 Model Adjusted
+79966ed added code sniffer pragmarx/laravelcs
+4bba448 removed prefer-dist folder
+a772d73 .env uncached
+8daf4d5 resolved gitigonre conflicts
+a535410 added laravel debugger
+023a5fb resolved gitignore
+1f4546a added vendor folder
+dc91157 corrected the indentations
+3fea4b6 Done with the home page
+6713b0e innitial commit
+daf9c52 adjusting homepage links
+0874520 indented the route file
+8914809 removed cached env
+5fc973a Merge branch 'verify' into emmanuel_master
+6bff71d added my .env file
+5f5179a initial commit

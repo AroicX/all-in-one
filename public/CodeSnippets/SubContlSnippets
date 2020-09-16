@@ -1,0 +1,153 @@
+if (Auth::check()) {
+
+            $company_id = Auth::user()->company_id;
+
+            $refx_code = $request->input('refx_code');
+
+            //flutterwave api variables
+            $merchantkey = "tk_ce9oJ20Gqm"; //merchant key on flutterwave dev portal
+            $apiKey = "tk_TXcD1PIpoeQG5qhgHyRB"; //merchant api key on flutterwave dev portal
+            $env = "staging";
+            Flutterwave::setMerchantCredentials($merchantkey, $apiKey, $env);
+
+            $data = [
+
+                "amount" => $request->input('amount'),
+                "cardno" => $request->input('number'),
+                "currency" => Currencies::USD,
+                "custid" => Auth::user()->company->id,
+                "cvv"    => $request->input('cvc'),
+                "pin" => $request->input('pin'),
+                "cardtype" => "",
+                "expirymonth" =>  substr($request->input('expiry'), 0, 2),
+                "expiryyear" => substr($request->input('expiry'), -2),
+                "merchantid" => $merchantkey,
+                "authmodel" => AuthModel::NOAUTH,
+                "narration" => $request->input('narration'),
+                "responseurl" => ""
+            ];
+            // encrypt the data
+            $data_string = json_encode($data);
+
+            $ch = curl_init('http://staging1flutterwave.co:8080/pwc/rest/card/mvva/pay');
+            // curl_setopt ($ch, CURLOPT_CAINFO, "/home/public_html/cacert.pem");
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+            $response = curl_exec($ch);
+
+            //$header_size = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+            // $header = substr($response, 0, $header_size);
+            // $body = substr($response, $header_size);
+            curl_close($ch);
+            $resp = json_decode($response, true);
+
+            //return print_r($resp);
+
+            if($resp){
+
+                //print_r($resp);
+
+                $info = [
+
+                   'company_id' => $company_id,
+                   'refx_code' => $refx_code,
+                   'amount'=> $request->input('amount'),
+                   'narration' => $request->input('narration'),
+                   'status'=>1,
+                   'date'=> date('Y-m-d h:i:s')
+
+                ];
+
+                $query = Payment::create($info);
+                //$query = DB::table('payment')->insert($info);
+
+                if($query) {
+
+                    $where = [
+                       'company_id' =>$company_id,
+                       'refx_code' => $refx_code,
+                    ];
+
+                    $data = [
+                       'status'=>1,
+                    ];
+
+                    Trial::where($where)->update($data);
+                    //$x = DB::table('trials')->where($where)->update($data);
+                    $y = Subscription::where($where)->update($data);
+                    //$y = DB::table('subscription')->where($where)->update($data);
+
+                    if($y) {
+
+                        return json_encode([ 'result' => 'success','refx_code'=>$refx_code ]);
+
+                    }
+                }
+
+
+            }
+            else {
+
+                return json_encode([ 'result' => 'fail' ]);
+
+            }
+
+        }
+        else {
+            return json_encode([ 'result' => 'login' ]);
+        }
+
+
+        /////////////////PHP METHOD
+        $cardData =  [
+                        "card_no" => $request->input('number'),
+                        "cvv" => $request->input('cvc'),
+                        "expiry_month" => substr($request->input('expiry'), 0, 2),
+                        "expiry_year" => substr($request->input('expiry'), -2),
+                        "card_type" => ""
+                    ];
+
+                    //set up API variables
+                    $authModel = AuthModel::NOAUTH; //this tells flutterwave how to validate the user of the card is the card owner
+                    $currency = Currencies::USD; //currency to charge the card
+                    $country = Countries::NIGERIA;
+                    $amount = $request->input('amount');
+                    $narration = "narration for this transaction";
+                    $responseUrl = ""; //callback url
+
+                    $result = Card::charge($cardData, $amount, $cId, $currency, $country, $authModel, $narration, $responseUrl);
+
+
+
+
+
+
+
+                    This function is specially designed for dynamic pages with varying numbers of checkboxes. Unlike other functions out there, it will work without error even if there are no checkboxes or there is only one checkbox. It is also significantly faster for long lists, because it saves the length of the checkbox in a variable, instead of recalculating it in the loop. Finally, the function is granted to the public domain--use it as you wish.
+
+                    Instructions
+
+                    Provide the form name and the field name of the checkbox as the parameters to the function. Then specify true or false as the CheckValue, depending on if you want to check or uncheck all the checkboxes, respectively. The function simply returns without doing anything if the checkboxes do not exist, so make sure you enter the correct FormName and FieldName. Remember, unlike HTML, Javascript form and field names are case-sensitive!
+
+                    JavaScript Source Code
+
+
+                    function SetAllCheckBoxes(FormName, FieldName, CheckValue)
+                    {
+                    	if(!document.forms[FormName])
+                    		return;
+                    	var objCheckBoxes = document.forms[FormName].elements[FieldName];
+                    	if(!objCheckBoxes)
+                    		return;
+                    	var countCheckBoxes = objCheckBoxes.length;
+                    	if(!countCheckBoxes)
+                    		objCheckBoxes.checked = CheckValue;
+                    	else
+                    		// set the check value for all check boxes
+                    		for(var i = 0; i < countCheckBoxes; i++)
+                    			objCheckBoxes[i].checked = CheckValue;
+                    }
